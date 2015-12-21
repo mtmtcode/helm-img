@@ -26,7 +26,6 @@
 
 ;;; Commentary:
 
-;; TODO candidatesが単純リストの場合に対応
 ;; TODO initializeとactionに任意の値を指定できるように
 ;; TODO 画像の取得をdeferredで非同期化
 ;; TODO ドキュメント書く
@@ -37,6 +36,7 @@
 ;;; Code
 
 (require 'json)
+(require 'cl-lib)
 
 ; TODO 調べる https://github.com/emacs-helm/helm/issues/132
 
