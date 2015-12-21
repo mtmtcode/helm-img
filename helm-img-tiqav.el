@@ -41,7 +41,7 @@
     (mapcar (lambda (img-info)
               (list
                (cons 'thumb (helm-img-tiqav-make-url img-info 'thumb))
-               (cons 'url (helm-img-tiqav-make-url img-info 'full))))
+               (cons 'full (helm-img-tiqav-make-url img-info 'full))))
             (append results nil))))
 
 (helm-img-define-source "tiqav" :candidates 'helm-img-tiqav-make-candidates)
