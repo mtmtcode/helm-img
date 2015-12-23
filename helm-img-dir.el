@@ -36,6 +36,7 @@
 
 (helm-img-define-source "dir" :candidates 'helm-img-dir-make-candidates)
 
+;;;###autoload
 (defun helm-img-dir (dir)
     (interactive "DDirectory: ")
     (let ((helm-img-query dir))

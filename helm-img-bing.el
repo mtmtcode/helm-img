@@ -56,6 +56,7 @@
 
 (helm-img-define-source "bing" :candidates 'helm-img-bing-make-candidates)
 
+;;;###autoload
 (defun helm-img-bing (query)
   (interactive "Mquery: ")
   (let ((helm-img-query query))
