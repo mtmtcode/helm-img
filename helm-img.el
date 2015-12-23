@@ -36,6 +36,11 @@
 (require 'json)
 (require 'cl-macs)
 
+(defgroup helm-img nil
+  "Utilities for making image sources for helm."
+  :group 'helm
+  :group 'image)
+
 (defcustom helm-img-thumbnail-height 100
   "Thumbnail height"
   :type 'integer
