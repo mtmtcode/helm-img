@@ -32,6 +32,7 @@
 
 ;;; Code
 
+(require 'helm)
 (require 'json)
 (require 'cl-macs)
 
