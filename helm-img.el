@@ -1,13 +1,14 @@
 ;;; helm-img --- Utilities for making image sources for helm.
 
 ;; Description: Utilities for making image sources for helm.
-;; Author: l3msh0 <l3msh0_at_gmail.com>
+;; Author: Sho Matsumoto <l3msh0_at_gmail.com>
 ;; Maintainer: l3msh0
 ;; Copyright (C) 2015 l3msh0 all rights reserved.
 ;; Created: :2015-12-20
 ;; Version: 0.0.1
 ;; Keywords: convenience
 ;; URL: https://github.com/l3msh0/helm-img
+;; Package-Requires: ((helm "1.7.7") (cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,17 +29,11 @@
 
 ;; TODO initializeとactionに任意の値を指定できるように
 ;; TODO 画像の取得をdeferredで非同期化
-;; TODO ドキュメント書く
-;; TODO ローカルディレクトリを指定して画像を表示できるように
-;; TODO サムネイルの取得上限を設定できるように
-
 
 ;;; Code
 
 (require 'json)
-(require 'cl-lib)
-
-; TODO 調べる https://github.com/emacs-helm/helm/issues/132
+(require 'cl-macs)
 
 (defcustom helm-img-thumbnail-height 100
   "Thumbnail height"
@@ -53,6 +48,7 @@
     nil))
 
 (defun helm-img-extract-body (response-buffer)
+  "Extract body from HTTP response buffer."
   (with-current-buffer response-buffer
     (goto-char (point-min))
     (search-forward "\n\n")
@@ -67,16 +63,18 @@
   (create-image path 'imagemagick nil :height helm-img-thumbnail-height))
 
 (defun helm-img-create-image (path)
+  "Create image object from URL or path."
   (if (helm-img-url-p path)
       (helm-img-create-image-from-url path)
     (helm-img-create-image-from-file path)))
 
 (defun helm-img-make-string-with-image (image)
+  "Create string with image object."
   (with-temp-buffer
     (insert-image image)
     (buffer-substring (point-min) (point-max))))
 
-(defmacro* helm-img-define-source (name &key candidates)
+(cl-defmacro helm-img-define-source (name &key candidates)
   `(set (intern (concat "helm-img-source-" ,name))
         (helm-build-sync-source ,name
           :candidates (lambda () (mapcar (lambda (x)

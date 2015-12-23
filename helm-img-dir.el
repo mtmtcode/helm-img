@@ -1,5 +1,7 @@
-;; Description: An helm-source for joking.
-;; Author: l3msh0 <l3msh0_at_gmail.com>
+;;; helm-img-bing --- Show local images on helm buffer
+
+;; Description: Show local images on helm buffer
+;; Author: Sho Matsumoto <l3msh0_at_gmail.com>
 ;; Maintainer: l3msh0
 ;; Copyright (C) 2015 l3msh0 all rights reserved.
 ;; Created: :2015-12-20
@@ -39,6 +41,6 @@
     (let ((helm-img-query dir))
       (helm
        :sources helm-img-source-dir
-       :buffer "*helm image dir")))
+       :buffer "*helm img-dir*")))
 
 (provide 'helm-img-dir)
