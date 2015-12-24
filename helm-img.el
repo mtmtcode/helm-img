@@ -1,4 +1,4 @@
-;;; helm-img --- Utilities for making image sources for helm.
+;;; helm-img.el --- Utilities for making image sources for helm.
 
 ;; Description: Utilities for making image sources for helm.
 ;; Author: Sho Matsumoto <l3msh0_at_gmail.com>
@@ -92,3 +92,4 @@
                     ("Browse URL" . (lambda (url) (browse-url url)))))))
 
 (provide 'helm-img)
+;;; helm-img.el ends here
