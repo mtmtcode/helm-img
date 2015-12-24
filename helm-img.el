@@ -1,4 +1,4 @@
-;;; helm-img --- Utilities for making image sources for helm.
+;;; helm-img.el --- Utilities for making image sources for helm.
 
 ;; Description: Utilities for making image sources for helm.
 ;; Author: Sho Matsumoto <l3msh0_at_gmail.com>
@@ -32,8 +32,14 @@
 
 ;;; Code
 
+(require 'helm)
 (require 'json)
 (require 'cl-macs)
+
+(defgroup helm-img nil
+  "Utilities for making image sources for helm."
+  :group 'helm
+  :group 'image)
 
 (defcustom helm-img-thumbnail-height 100
   "Thumbnail height"
@@ -92,3 +98,4 @@
                     ("Browse URL" . (lambda (url) (browse-url url)))))))
 
 (provide 'helm-img)
+;;; helm-img.el ends here

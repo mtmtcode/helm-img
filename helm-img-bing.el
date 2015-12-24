@@ -28,10 +28,10 @@
 (require 'url-util)
 (require 'cl-extra)
 
-(defcustom helm-img-bing-query-url "https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources=%27image%27&Market=%27ja-JP%27&Adult=%27Moderate%27&ImageFilters=%27Size%3AMedium%27&$format=json" "Image Search URL")
+(defcustom helm-img-bing-query-url "https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources=%27image%27&Market=%27ja-JP%27&Adult=%27Moderate%27&ImageFilters=%27Size%3AMedium%27&$format=json" "Image Search URL" :group 'helm-img)
 
-(defcustom helm-img-bing-account-key "" "Microsoft account key.")
-(defcustom helm-img-bing-candidate-limit 10 "Maximum candidates.")
+(defcustom helm-img-bing-account-key "" "Microsoft account key." :group 'helm-img)
+(defcustom helm-img-bing-candidate-limit 10 "Maximum candidates." :group 'helm-img)
 
 (defun helm-img-bing-search (query)
   (let* ((url-request-extra-headers
@@ -56,6 +56,7 @@
 
 (helm-img-define-source "bing" :candidates 'helm-img-bing-make-candidates)
 
+;;;###autoload
 (defun helm-img-bing (query)
   (interactive "Mquery: ")
   (let ((helm-img-query query))
