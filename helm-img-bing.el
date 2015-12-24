@@ -36,7 +36,7 @@
 (defun helm-img-bing-search (query)
   (let* ((url-request-extra-headers
           `(("Authorization" . ,(concat "Basic " (base64-encode-string (concat ":" helm-img-bing-account-key))))))
-         (result-buffer (url-retrieve-synchronously (concat helm-img-bing-query-url "&Query=" (url-encode-url (concat "'" query "'")))))
+         (result-buffer (url-retrieve-synchronously (concat helm-img-bing-query-url "&Query=" (url-hexify-string (concat "'" query "'")))))
          (body (helm-img-extract-body result-buffer)))
     (json-read-from-string body)))
 
