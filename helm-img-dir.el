@@ -1,4 +1,4 @@
-;;; helm-img-bing --- Show local images on helm buffer
+;;; helm-img-dir --- Show local images on helm buffer
 
 ;; Description: Show local images on helm buffer
 ;; Author: Sho Matsumoto <l3msh0_at_gmail.com>
